@@ -9,9 +9,26 @@ class ShopPage extends React.Component{
     constructor(props){
         super(props)
 
+        console.log('shopCategory: ', props.match.params.shopCategory)
+
+        
+                
+
         this.state = {
-            collections: SHOP_DATA
+            collections: SHOP_DATA,
+            shopCategory: props.match.params.shopCategory,
+            filteredData: []
         }
+    }
+
+    componentDidMount(){
+        this.state.collections
+                .filter((item, idx) => item.title.toLowerCase() === this.state.shopCategory)
+                // .filter((item, idx) => console.log(item.title.toLowerCase() ))
+                .map(item => (
+                    // console.log(item)
+                    this.setState({collections:[item]})
+                ))
     }
 
     render(){
