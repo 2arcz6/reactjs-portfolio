@@ -1,7 +1,7 @@
 import React from 'react'
 import './shop.styles.scss'
 
-import SHOP_DATA from '../../shop.data'
+import SHOP_DATA from '../../data/shop.data'
 import CollectionPreview from '../../components/collection-preview/collection-preview.component'
 
 
@@ -27,7 +27,7 @@ class ShopPage extends React.Component{
                 // .filter((item, idx) => console.log(item.title.toLowerCase() ))
                 .map(item => (
                     // console.log(item)
-                    this.setState({collections:[item]})
+                    this.setState({...this.state, collections:[item]})
                 ))
     }
 
